@@ -5,10 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 03 - Logica de Programação</title>
+    <style type="text/css">
+        .header{
+            width: 100%;
+            height: 50px;
+            border: 2px solid black;
+        }
+    </style>
 </head>
 <body>
+    <div class="header">
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script>
-        
+        $(function(){
+            function verificarTamanhoEAplicarCor(){
+                var tamanhoTela = $(window).width();
+                    if(tamanhoTela < 500 ){
+                        $('.header').css('background','red');
+                }else if(tamanhoTela < 800){
+                    $('.header').css('background','green');
+                }else{
+                    $('.header').css('background','white');
+                }
+            }
+            verificarTamanhoEAplicarCor();
+
+            setInterval(function(){ //Função responsável por verificar se a tela diminuiu a cada 3segs.
+                verificarTamanhoEAplicarCor();
+            },3000);
+
+            $(window).resize(function(){
+                verificarTamanhoEAplicarCor();
+            })
+        })    
     </script>
 </body>
 </html>
